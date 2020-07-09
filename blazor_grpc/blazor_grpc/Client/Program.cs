@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Grpc.Net.Client.Web;
+using Grpc.Net.Client;
 
 namespace blazor_grpc.Client
 {
@@ -23,6 +25,14 @@ namespace blazor_grpc.Client
 
             // Supply HttpClient instances that include access tokens when making requests to the server project
             builder.Services.AddTransient(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("blazor_grpc.ServerAPI"));
+
+            builder.Services.AddSingleton(services =>
+            {
+                var httpHandler = new GrpcWebHandler(GrpcWebMode.GrpcWeb, new HttpClientHandler());
+                var baseUri = builder.HostEnvironment.BaseAddress;
+
+                return GrpcChannel.ForAddress(baseUri, new GrpcChannelOptions() { HttpHandler = httpHandler });
+            });
 
             builder.Services.AddApiAuthorization();
 

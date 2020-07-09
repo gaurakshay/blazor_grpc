@@ -9,7 +9,6 @@ using Microsoft.Extensions.Logging;
 
 namespace blazor_grpc.Server.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase

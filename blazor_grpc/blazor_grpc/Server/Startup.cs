@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using blazor_grpc.Server.Data;
 using blazor_grpc.Server.Models;
+using blazor_grpc.Server.Services;
 
 namespace blazor_grpc.Server
 {
@@ -42,6 +43,8 @@ namespace blazor_grpc.Server
             services.AddAuthentication()
                 .AddIdentityServerJwt();
 
+            services.AddGrpc();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -67,6 +70,7 @@ namespace blazor_grpc.Server
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseGrpcWeb();
 
             app.UseIdentityServer();
             app.UseAuthentication();
@@ -74,6 +78,8 @@ namespace blazor_grpc.Server
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapGrpcService<EmployeeDataService>()
+                    .EnableGrpcWeb();
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");

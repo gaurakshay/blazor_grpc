@@ -1,0 +1,23 @@
+﻿syntax = "proto3";
+option csharp_namespace = "GrpcEmployeeDataService";
+package employee_data;
+
+service EmployeeDataSender {
+	rpc GetEmployeeData (HelloRequest) returns (EmployeeListResponse);
+}
+
+message HelloRequest {
+	string name = 1;
+}
+
+message EmployeeListResponse{
+	repeated EmployeeData employees = 1;
+}
+
+message EmployeeData {
+	string first_name = 1;
+	string last_name = 2;
+	string phone_number = 3;
+	string address = 4;
+	string notes = 5;
+}

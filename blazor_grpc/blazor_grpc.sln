@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blazor_grpc.Server", "blazor_grpc\Server\blazor_grpc.Server.csproj", "{70841013-38E4-43A3-9DE2-0A38B198F096}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "blazor_grpc.Server", "blazor_grpc\Server\blazor_grpc.Server.csproj", "{70841013-38E4-43A3-9DE2-0A38B198F096}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blazor_grpc.Client", "blazor_grpc\Client\blazor_grpc.Client.csproj", "{CB716504-0CCC-4DD1-9E15-C088C3812E9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "blazor_grpc.Client", "blazor_grpc\Client\blazor_grpc.Client.csproj", "{CB716504-0CCC-4DD1-9E15-C088C3812E9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blazor_grpc.Shared", "blazor_grpc\Shared\blazor_grpc.Shared.csproj", "{E0FD40E2-CE39-40FD-A7FD-B7C3C18CD867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "blazor_grpc.Shared", "blazor_grpc\Shared\blazor_grpc.Shared.csproj", "{E0FD40E2-CE39-40FD-A7FD-B7C3C18CD867}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

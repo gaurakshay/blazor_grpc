@@ -1,0 +1,54 @@
+﻿@page "/employee_data_grpc"
+
+@using Grpc.Net.Client
+@inject GrpcChannel Channel
+@using GrpcEmployeeDataService
+
+
+
+<h1>Employee Data</h1>
+
+<p>Uses gRPC to fetch the data.</p>
+
+@if (_employeeData == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Ph. #</th>
+                <th>Address</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in _employeeData)
+            {
+                <tr>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td>@employee.PhoneNumber</td>
+                    <td>@employee.Address</td>
+                    <td>@employee.Notes</td>
+                </tr>
+}
+        </tbody>
+    </table>
+}
+
+
+@code{
+    private IList<EmployeeData> _employeeData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new EmployeeDataSender.EmployeeDataSenderClient(Channel);
+        _employeeData = (await client.GetEmployeeDataAsync(new HelloRequest() { Name = "Akshay" })).Employees;
+    }
+
+}
