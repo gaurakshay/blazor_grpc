@@ -19,9 +19,9 @@ namespace blazor_grpc.Server.Services
                 {
                     FirstName = "Akshay",
                     LastName = "Gaur",
-                    PhoneNumber = "4053149899",
-                    Address = "1011 East Brooks Street Apartment B, Norman, Oklahoma 73071",
-                    Notes = "Some random text here to increase the reponse size."
+                    PhoneNumber = "(405) xxx-xxxx",
+                    Address = "9999 East Alameda Street Apartment XYZ, Norman, Oklahoma 73069",
+                    Notes = "Some random text here to increase the reponse size. Should probably make it longer."
                 }
                 );
 
